@@ -9,6 +9,6 @@ class Constructible : public Parcelle
 
   public :
 
-  virtual int surfaceConstructible()const=0;
+  virtual int surfaceConstructible() = 0;
 
 };
