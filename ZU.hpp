@@ -18,7 +18,8 @@ class ZU : public ZAU
       os << "Proprietaire : " << zu.proprietaire << endl;
       os << "Surface : " << zu.surface << endl;
       os << "% Constructible : " << zu.pConstructible << endl;
-      os << "Surface construite : " << (1-zu.pConstructible)* << endl;
+      os << "Surface construite : " << zu.surfaceConstruite << endl;
+      os << "Surface à constuire restante : " << (zu.surface*zu.pConstructible)-zu.surfaceConstruite << endl;
       return os;
   }
 
