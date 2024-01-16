@@ -1,65 +1,38 @@
-#ifndef POINT2D_H
-#define POINT2D_H
+#ifndef POINT2D_HPP
+#define POINT2D_HPP
 
-template <typename T>
+template <typename T, typename U>
 class Point2D {
 public:
-    // Constructeurs
-    Point2D(T x, T y);
-    Point2D();
-    Point2D(const Point2D<T>& p);
-
-    // Accesseurs
+    Point2D(T x, U y);
     T getX() const;
-    T getY() const;
-
-    // Modificateurs
-    void setX(T x);
-    void setY(T y);
-
-    // Autres méthodes
-    void translate(T deltaX, T deltaY);
+    U getY() const;
+    void translate(T deltaX, U deltaY);
 
 private:
     T x;
-    T y;
+    U y;
 };
 
 // Implémentation des méthodes de la classe Point2D
 
-template <typename T>
-Point2D<T>::Point2D(T x, T y) : x(x), y(y) {}
+template <typename T, typename U>
+Point2D<T, U>::Point2D(T x, U y) : x(x), y(y) {}
 
-template <typename T>
-Point2D<T>::Point2D() : x(T()), y(T()) {}
-
-template <typename T>
-Point2D<T>::Point2D(const Point2D<T>& p) : x(p.x), y(p.y) {}
-
-template <typename T>
-T Point2D<T>::getX() const {
+template <typename T, typename U>
+T Point2D<T, U>::getX() const {
     return x;
 }
 
-template <typename T>
-T Point2D<T>::getY() const {
+template <typename T, typename U>
+U Point2D<T, U>::getY() const {
     return y;
 }
 
-template <typename T>
-void Point2D<T>::setX(T x) {
-    this->x = x;
-}
-
-template <typename T>
-void Point2D<T>::setY(T y) {
-    this->y = y;
-}
-
-template <typename T>
-void Point2D<T>::translate(T deltaX, T deltaY) {
+template <typename T, typename U>
+void Point2D<T, U>::translate(T deltaX, U deltaY) {
     x += deltaX;
     y += deltaY;
 }
 
-#endif // POINT2D_H
+#endif // POINT2D_HPP
