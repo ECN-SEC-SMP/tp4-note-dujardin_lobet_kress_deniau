@@ -3,27 +3,26 @@
 #include "Polygone.hpp"
 
 int main() {
-    // Test de la classe Polygone avec des entiers
-    Polygone<int> poly1;
+    // Création d'un polygone avec des points
+    Polygone<int, float> poly;
+    poly.addPoint(Point2D<int, float>(0, 0));
+    poly.addPoint(Point2D<int, float>(1, 0));
+    poly.addPoint(Point2D<int, float>(1, 1));
+    poly.addPoint(Point2D<int, float>(0, 1));
 
-    Point2D<int> point1(1, 2);
-    Point2D<int> point2(4, 5);
-    Point2D<int> point3(7, 8);
-
-    poly1.addPoint(point1);
-    poly1.addPoint(point2);
-    poly1.addPoint(point3);
-
-    std::cout << "Sommets du polygone1 avant translation : ";
-    for (const auto& point : poly1.getSommets()) {
+    // Affichage des sommets du polygone
+    std::cout << "Sommets du polygone : ";
+    for (const auto& point : poly.getSommets()) {
         std::cout << "(" << point.getX() << ", " << point.getY() << ") ";
     }
     std::cout << std::endl;
 
-    poly1.translate(2, 3);
+    // Translation du polygone
+    poly.translate(1, 1);
 
-    std::cout << "Sommets du polygone1 apres translation : ";
-    for (const auto& point : poly1.getSommets()) {
+    // Affichage des sommets après la translation
+    std::cout << "Sommets après translation : ";
+    for (const auto& point : poly.getSommets()) {
         std::cout << "(" << point.getX() << ", " << point.getY() << ") ";
     }
     std::cout << std::endl;
