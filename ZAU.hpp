@@ -14,7 +14,7 @@ class ZAU : public Constructible
     os << "Polygone: " << zau.proprietaire << endl;
     os << "Proprietaire : " << zau.proprietaire << endl;
     os << "Surface : " << zau.surface << endl;
-    os << "% Constructible : " << endl;
+    os << "% Constructible : " << zau.pConstructible << endl;
     
       return os;
   }

@@ -21,9 +21,9 @@ class ZAU : public Constructible
   //surcharge de l'opérateur <<
   friend std::ostream& operator<<(std::ostream& os, const ZN& zn) {
       os << "Type : " << zn.type << endl;
-      os << "proprietaire : " << zau.proprietaire << endl;
-      os << "proprietaire : " << zau.proprietaire << endl;
-      os << "surface : " << zau.surface << endl;
+      os << "Polygone : " << zau.proprietaire << endl;
+      os << "Proprietaire : " << zau.proprietaire << endl;
+      os << "Surface : " << zau.surface << endl;
       return os;
   }
 
