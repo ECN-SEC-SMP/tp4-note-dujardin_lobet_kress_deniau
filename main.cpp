@@ -2,6 +2,8 @@
 #include "Point2D.hpp"
 #include "Polygone.hpp"
 #include "Parcelle.hpp"
+#include "ZN.hpp"
+
 
 int main() {
     // Test de la classe Point2D
@@ -45,6 +47,15 @@ int main() {
     // Affichage de la parcelle après modification
     std::cout << "Parcelle 1 après modification - Numero: " << parcelle1.getNumero() << ", Proprietaire: " << parcelle1.getProprietaire()
               << ", Surface: " << parcelle1.getSurface() << ", Type: " << parcelle1.getType() << std::endl;
+  
+  // Création d'un polygone pour la zone naturelle
+  std::vector<Point2D<int, float>> sommets = { {0, 0}, {0, 5}, {5, 5}, {5, 0} };
+  Polygone<int, float> polygone(sommets);
 
+  // Création d'une zone naturelle
+  ZoneNaturelle zoneNaturelle(1, "Proprietaire1", polygone);
+
+  // Affichage des informations
+  std::cout << zoneNaturelle << std::endl;
     return 0;
 }

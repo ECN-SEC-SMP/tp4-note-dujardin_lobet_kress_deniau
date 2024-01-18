@@ -1,31 +1,16 @@
+#ifndef ZONENATURELLE_HPP
+#define ZONENATURELLE_HPP
+
 #include "Parcelle.hpp"
+#include <iostream>
 
-class ZN : public Parcelle
-{
-  public :
+class ZoneNaturelle : public Parcelle {
+public:
+    ZoneNaturelle(int num, const std::string& prop, const Polygone<int, float>& forme);
 
-  int surfaceConstructible() const override;
-
-
+//surcharge de l'opérateur <<
+friend std::ostream& operator << (std::ostream& os, const ZoneNaturelle& Za);
 };
 
-#include "Constructible.hpp"
+#endif // ZONENATURELLE_HPP
 
-class ZAU : public Constructible
-{
-
-  public :
-
-  int surfaceConstructible() const override;
-
-  //surcharge de l'opérateur <<
-  friend std::ostream& operator<<(std::ostream& os, const ZN& zn) {
-      os << "Type : " << typeid(*this).name() << endl;
-      os << "Polygone : " << zn.forme << endl;
-      os << "Proprietaire : " << zn.proprietaire << endl;
-      os << "Surface : " << zn.surface << endl;
-      return os;
-  }
-
-
-};
