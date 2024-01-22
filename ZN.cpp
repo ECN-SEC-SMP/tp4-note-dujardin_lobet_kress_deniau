@@ -7,8 +7,8 @@ ZoneNaturelle::ZoneNaturelle(int num, const std::string& prop, const Polygone<in
 
 //surcharge de l'opérateur <<
 std::ostream& operator << (std::ostream& os, const ZoneNaturelle& Zn) {
-
-  os << "parcelle numero : " << Zn.getNumero() << std::endl;
+  os <<std::endl<< std::endl<<"Affichage Zone Naturelle "<< std::endl;
+  os << "Parcelle n°" << Zn.getNumero() << std::endl;
   os << "Type : " << Zn.getType() << std::endl;
   //os << "Polygone: " << Zn.getForme() << std::endl;
   os << "Proprietaire : " << Zn.getProprietaire() << std::endl;
