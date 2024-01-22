@@ -1,0 +1,22 @@
+#include "ZN.hpp"
+#include "Constructible.hpp"
+#include <iostream>
+#include <string>
+
+class ZoneAgricole : public ZoneNaturelle, public Constructible 
+{
+  protected:
+    string culture; 
+
+  public : 
+    // seteu
+    string ZoneAgricole::setculture(string cult) const; 
+    // constructeur
+    ZoneAgricole(int SurfaceConstructible, int numero, string proprietaire, Polygone<int, float> forme, float surface, std::string culture);
+
+//surcharge de l'opérateur <<
+friend std::ostream& operator<<(std::ostream& os, const ZoneAgricole& za) ;
+
+
+};
+std::ostream& operator<<(std::ostream& os, const ZoneAgricole& za);

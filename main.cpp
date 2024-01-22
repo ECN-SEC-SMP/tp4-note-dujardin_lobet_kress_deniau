@@ -3,6 +3,7 @@
 #include "Polygone.hpp"
 #include "Parcelle.hpp"
 #include "ZN.hpp"
+#include "ZAU.hpp"
 
 
 int main() {
@@ -57,5 +58,14 @@ int main() {
 
   // Affichage des informations
   std::cout << zoneNaturelle << std::endl;
+
+/*
+  //Création d'une Zone A Urbaniser
+  ZoneAUrbaniser zau(2, "ProprietaireZAU", polygone);
+  //Afficher info ZAU
+  std::cout << "zau : Forgot to say\n" << std::endl;
+  std::cout << zau << std::endl;
+  */
+  
     return 0;
 }

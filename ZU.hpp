@@ -4,13 +4,13 @@
 class ZoneUrbaine : public ZoneAUrbaniser 
 {
 
-  private :
+  protected :
 
   //string surfaceConstruite;
 
   public :
 
-  int surfaceConstructible()const override;
+  //int surfaceConstructible()const override;
 
   //surcharge de l'opérateur <<
   friend std::ostream& operator<<(std::ostream& os, const ZoneUrbaine& zu);

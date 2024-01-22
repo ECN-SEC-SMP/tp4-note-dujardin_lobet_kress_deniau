@@ -46,3 +46,19 @@ void Parcelle::setForme(const Polygone<int, float>& f) {
 void Parcelle::setType(const std::string& t) {
     type = t;
 }
+
+// Surcharge de l'opérateur <<
+std::ostream& operator<<(std::ostream& os, Parcelle& parcelle) {
+  /*
+    os << "Numéro: " << parcelle.numero << "\n"
+       << "Propriétaire: " << parcelle.proprietaire << "\n"
+       << "Surface: " << parcelle.surface << "\n"
+       << "Type: " << parcelle.type << "\n"
+       << "Forme: " << parcelle.forme << "\n";*/
+
+  os << "Informations sur la parcelle :\n";
+  os << "Surface : " << parcelle.getSurface() << " m²\n";
+  // Ajoutez d'autres informations si nécessaire
+
+    return os;
+}

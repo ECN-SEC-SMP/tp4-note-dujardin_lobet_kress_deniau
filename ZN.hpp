@@ -5,7 +5,7 @@
 #include <iostream>
 
 class ZoneNaturelle : public Parcelle {
-private: 
+protected: 
 std::string type = "Zone Naturelle";// Valeur par défaut
 public:
     ZoneNaturelle(int num, const std::string& prop, const Polygone<int, float>& forme);

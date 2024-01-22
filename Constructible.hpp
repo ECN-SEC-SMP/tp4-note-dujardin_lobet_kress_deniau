@@ -1,14 +1,13 @@
+#ifndef CONSTRUCTIBLE_HPP
+#define CONSTRUCTIBLE_HPP
+
 #include "Parcelle.hpp"
 
-class Constructible : public Parcelle 
-{
+class Constructible : public Parcelle {
+public:
+    Constructible(int num, const std::string& prop, const Polygone<int, float>& forme);
 
-  private :
-
-    int surfaceConstructible;
-
-  public :
-
-  virtual int surfaceConstructible() = 0;
-
+    virtual float surfaceConstructible() const = 0;
 };
+
+#endif // CONSTRUCTIBLE_HPP
