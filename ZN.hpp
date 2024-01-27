@@ -4,17 +4,17 @@
 #include "Parcelle.hpp"
 #include <iostream>
 
-class ZoneNaturelle : virtual public Parcelle {
+class ZoneNaturelle : public virtual Parcelle {
 protected: 
-std::string type = "Zone Naturelle";// Valeur par défaut
 public:
-    ZoneNaturelle(int num, const std::string& prop, const Polygone<int, float>& forme);
+  ZoneNaturelle(int num, const std::string& prop, const Polygone<int, float>& forme);
+  // Redéfinition de setType pour définir le type sur "Zone Naturelle"
+  void setType(const std::string& type) override;
 
-    // Surcharge de la méthode getType
-    std::string getType() const ;
-    
-    //surcharge de l'opérateur <<
-    friend std::ostream& operator << (std::ostream& os, const ZoneNaturelle& Zn);
+  // Ajout d'un getter pour le type
+  std::string getZoneType() const;
+  //surcharge de l'opérateur <<
+  friend std::ostream& operator << (std::ostream& os, const ZoneNaturelle& Zn);
 };
 std::ostream& operator << (std::ostream& os, const ZoneNaturelle& Zn);
 #endif // ZONENATURELLE_HPP
