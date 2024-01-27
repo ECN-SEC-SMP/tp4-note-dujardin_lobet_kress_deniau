@@ -3,7 +3,7 @@
 
 #include "Parcelle.hpp"
 
-class Constructible : virtual public Parcelle {
+class Constructible : public virtual Parcelle {
 public:
     Constructible(int num, const std::string& prop, const Polygone<int, float>& forme);
 
