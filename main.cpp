@@ -10,6 +10,7 @@
 //#include "Carte.hpp"
 
 int main() {
+  
     // Création d'une parcelle avec un polygone
     Polygone<int, float> poly;
     poly.addPoint(Point2D<int, float>(0, 0));
@@ -28,6 +29,17 @@ int main() {
 
     // Affichage des informations mises à jour sur la parcelle
     std::cout << parcelle << std::endl;
+
+    //test de la foncion translater
+    poly.translate(2,3);
+    Polygone<int, float> poly2(poly); //création d'un polygone par copie
+  poly2.translate(1,1);
+    Parcelle parcelle2(1, "Proprietaire3", poly2);
+    std::cout << parcelle2 << std::endl;
+
+
+
+  
 
     // Création d'un polygone pour la zone naturelle
     std::vector<Point2D<int, float>> sommets = { {0, 0}, {0, 5}, {5, 5}, {5, 0} };
@@ -106,104 +118,7 @@ int main() {
   } catch (const std::invalid_argument& e) {
       std::cerr << "Exception : " << e.what() << std::endl;
   }
-/*
-  // Création d'une carte
-  Carte maCarte;
 
-  // Lecture du fichier Parcelle_short.txt
-  std::ifstream fichierEntree("Parcelle_short.txt");
-  if (!fichierEntree.is_open()) {
-      std::cerr << "Erreur lors de l'ouverture du fichier Parcelle_short.txt" << std::endl;
-      return 1;
-  }
-
-  // Lecture des informations du fichier
-  while (!fichierEntree.eof()) {
-      // Lecture du type de parcelle
-      std::string typeParcelle;
-      fichierEntree >> typeParcelle;
-    // Création d'une parcelle en fonction du type
-    if (typeParcelle == "ZU") {
-        int numero, pConstructible, surfaceConstruite;
-        std::string proprietaire;
-
-        // Lecture des informations spécifiques à ZU
-        fichierEntree >> numero >> proprietaire >> pConstructible >> surfaceConstruite;
-
-        // Lecture des points du polygone
-        Polygone<int, float> polygone;
-        lirePolygone(fichierEntree, polygone);
-
-        // Création de la parcelle ZU
-        ZoneUrbaine maParcelleZU(numero, proprietaire, polygone, pConstructible, surfaceConstruite);
-
-        // Ajout de la parcelle à la carte
-        maCarte.ajouterParcelle(maParcelleZU);
-    } 
-    else if (typeParcelle == "ZAU") {
-        int numero, pConstructible;
-        std::string proprietaire;
-
-        // Lecture des informations spécifiques à ZAU
-        fichierEntree >> numero >> proprietaire >> pConstructible;
-
-        // Lecture des points du polygone
-        Polygone<int, float> polygone;
-        lirePolygone(fichierEntree, polygone);
-
-        // Création de la parcelle ZAU
-        ZoneAUrbaniser maParcelleZAU(numero, proprietaire, polygone, pConstructible);
-
-        // Ajout de la parcelle à la carte
-        maCarte.ajouterParcelle(maParcelleZAU);
-    }
-    else if (typeParcelle == "ZA") {
-        int numero;
-        std::string proprietaire, typeCulture;
-
-        // Lecture des informations spécifiques à ZA
-        fichierEntree >> numero >> proprietaire >> typeCulture;
-
-        // Lecture des points du polygone
-        Polygone<int, float> polygone;
-        lirePolygone(fichierEntree, polygone);
-
-        // Création de la parcelle ZA
-        ZoneAgricole maParcelleZA(numero, proprietaire, polygone, typeCulture);
-
-        // Ajout de la parcelle à la carte
-        maCarte.ajouterParcelle(maParcelleZA);
-    } 
-    else if (typeParcelle == "ZN") {
-        int numero;
-        std::string proprietaire;
-
-        // Lecture des informations spécifiques à ZN
-        fichierEntree >> numero >> proprietaire;
-
-        // Lecture des points du polygone
-        Polygone<int, float> polygone;
-        lirePolygone(fichierEntree, polygone);
-
-        // Création de la parcelle ZN
-        ZoneNaturelle maParcelleZN(numero, proprietaire, polygone);
-
-        // Ajout de la parcelle à la carte
-        maCarte.ajouterParcelle(maParcelleZN);
-    } 
-    else {
-        // Type de parcelle inconnu
-        std::cerr << "Type de parcelle inconnu : " << typeParcelle << std::endl;
-        return 1;
-    }
-  }
-
-  // Fermeture du fichier
-  fichierEntree.close();
-
-  // Affichage des informations de la carte
-  maCarte.afficherCarte();
-
-*/
+  
     return 0;
 }
