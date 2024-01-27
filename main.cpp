@@ -5,6 +5,7 @@
 #include "ZA.hpp"
 #include "ZAU.hpp"
 #include "ZU.hpp"
+#include "Carte.hpp"
 
 #include <fstream>
 //#include "Carte.hpp"
@@ -119,6 +120,12 @@ int main() {
       std::cerr << "Exception : " << e.what() << std::endl;
   }
 
-  
+  try {
+      Carte maCarte("Parcelles_short.txt");
+      maCarte.afficherDetailsCarte();
+  } catch (const std::exception& e) {
+      std::cerr << "Erreur : " << e.what() << std::endl;
+  }
+
     return 0;
 }
