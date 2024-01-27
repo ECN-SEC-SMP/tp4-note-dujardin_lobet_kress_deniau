@@ -1,28 +1,32 @@
-#ifndef ZA_HPP
-#define ZA_HPP
+#ifndef ZONEAGRICOLE_HPP
+#define ZONEAGRICOLE_HPP
 
 #include "ZN.hpp"
 #include "Constructible.hpp"
-#include <iostream>
-#include <string>
+
+class ZoneAgricole : public ZoneNaturelle, public Constructible {
+
+protected:
+    std::string typeCulture;
+public:
+    // Constructeur
+    ZoneAgricole(int num, const std::string& prop, const Polygone<int, float>& forme, const std::string& typeCulture);
 
 
-class ZoneAgricole : public ZoneNaturelle,  public Constructible
-{
-  protected:
-    std::string culture; 
+    // Redéfinition de setType pour définir le type sur "Zone Naturelle"
+    void setType(const std::string& type) override;
+    void setTypeCulture(const std::string& typeCulture);
+    std::string getTypeCulture() const;
 
-  public : 
-    // seteur
-    void setculture(std::string cult) ; 
-    // constructeur
-    ZoneAgricole(int SurfaceConstructible, int numero, std::string proprietaire, Polygone<int, float> forme, float surface, std::string culture);
+    // Redéfinition de la fonction virtuelle pure
+    float surfaceConstructible() const override {
+      // Calcul de la surface maximale constructible (10% de la surface de la ZA ou 200m2, le minimum des deux)
+      float maxSurface = std::min(getSurface() * 0.1f, 200.0f);
+      return maxSurface;
+    }
 
-//surcharge de l'opérateur <<
-friend std::ostream& operator<<(std::ostream& os, const ZoneAgricole& za) ;
-
-
+    // Surcharge de l'opérateur <<
+    friend std::ostream& operator << (std::ostream& os, const ZoneAgricole& za);
 };
-std::ostream& operator<<(std::ostream& os, const ZoneAgricole& za);
-
-#endif // ZA_HPP
+std::ostream& operator << (std::ostream& os, const ZoneAgricole& za);
+#endif // ZONEAGRICOLE_HPP
