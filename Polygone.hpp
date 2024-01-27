@@ -59,4 +59,15 @@ void Polygone<T, U>::translate(T deltaX, U deltaY) {
     }
 }
 
+template<typename T, typename U>
+std::ostream& operator<<(std::ostream& os, const Polygone<T, U>& poly) {
+  os << "Polygone: ";
+
+  for (const auto& point : poly.getSommets()) {
+      os << "(" << point.getX() << ", " << point.getY() << ") ";
+  }
+ 
+    return os;
+}
+
 #endif // POLYGONE_HPP

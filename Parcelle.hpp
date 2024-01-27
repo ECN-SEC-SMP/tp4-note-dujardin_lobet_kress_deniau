@@ -8,6 +8,7 @@
 class Parcelle {
 public:
     // Constructeurs
+    Parcelle();  // Déclaration du constructeur par défaut
     Parcelle(int num, const std::string& prop, const Polygone<int, float>& forme);
     Parcelle(const Parcelle& parc);
 
@@ -22,7 +23,8 @@ public:
     void setNumero(int n);
     void setProprietaire(const std::string& prop);
     void setForme(const Polygone<int, float>& forme);
-    void setType(const std::string& type);
+    virtual void setType(const std::string& type);
+    void setSurface(float nouvelleSurface);
 
     // Surcharge de l'opérateur <<
     friend std::ostream& operator<<(std::ostream& os, Parcelle& parcelle);
@@ -33,7 +35,7 @@ protected:
     Polygone<int, float> forme;
     float surface;
     std::string type;
-    int pConstructible = 1; // Valeur par défaut
+    int pConstructible; // Valeur par défaut
 };
 
 // Déclaration de la surcharge de l'opérateur de flux << en dehors de la classe

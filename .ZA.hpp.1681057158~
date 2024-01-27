@@ -3,16 +3,17 @@
 #include <iostream>
 #include <string>
 
-class ZoneAgricole : public ZoneNaturelle, public Constructible 
+
+class ZoneAgricole : public ZoneNaturelle, public Constructible
 {
   protected:
-    string culture; 
+    std::string culture; 
 
   public : 
-    // seteu
-    string ZoneAgricole::setculture(string cult) const; 
+    // seteur
+    void setculture(std::string cult) ; 
     // constructeur
-    ZoneAgricole(int SurfaceConstructible, int numero, string proprietaire, Polygone<int, float> forme, float surface, std::string culture);
+    ZoneAgricole(int SurfaceConstructible, int numero, std::string proprietaire, Polygone<int, float> forme, float surface, std::string culture);
 
 //surcharge de l'opérateur <<
 friend std::ostream& operator<<(std::ostream& os, const ZoneAgricole& za) ;
