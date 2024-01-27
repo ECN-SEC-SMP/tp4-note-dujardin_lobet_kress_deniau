@@ -1,0 +1,110 @@
+@startuml
+
+
+
+
+
+/' Objects '/
+
+abstract class Constructible {
+	+Constructible(int num, const std::string& prop, const Polygone<int, float>& forme)
+	+{abstract} surfaceConstructible() : float {query}
+}
+
+
+class Parcelle {
+	+Parcelle()
+	+Parcelle(int num, const std::string& prop, const Polygone<int, float>& forme)
+	+Parcelle(const Parcelle& parc)
+	+getForme() : Polygone<int , float> {query}
+	#forme : Polygone<int, float>
+	+getSurface() : float {query}
+	#surface : float
+	+getNumero() : int {query}
+	#numero : int
+	#pConstructible : int
+	+operator<<(std::ostream& os, Parcelle& parcelle) : std :: ostream&
+	+getProprietaire() : std::string {query}
+	+getType() : std::string {query}
+	#proprietaire : std::string
+	#type : std::string
+	+setForme(const Polygone<int, float>& forme) : void
+	+setNumero(int n) : void
+	+setProprietaire(const std::string& prop) : void
+	+setSurface(float nouvelleSurface) : void
+	+setType(const std::string& type) : void
+}
+
+
+class ZoneAUrbaniser {
+	+ZoneAUrbaniser(int num, const std::string& prop, const Polygone<int, float>& forme)
+	+surfaceConstructible() : float {query}
+	+operator<<(std::ostream& os, const ZoneAUrbaniser& zau) : std :: ostream&
+	+setType(const std::string& type) : void
+}
+
+
+class ZoneAgricole {
+	+ZoneAgricole(int num, const std::string& prop, const Polygone<int, float>& forme, const std::string& typeCulture)
+	+surfaceConstructible() : float {query}
+	+operator<<(std::ostream& os, const ZoneAgricole& za) : std :: ostream&
+	+getTypeCulture() : std::string {query}
+	#typeCulture : std::string
+	+setType(const std::string& type) : void
+	+setTypeCulture(const std::string& typeCulture) : void
+}
+
+
+class ZoneNaturelle {
+	+ZoneNaturelle(int num, const std::string& prop, const Polygone<int, float>& forme)
+	+operator<<(std::ostream& os, const ZoneNaturelle& Zn) : std :: ostream&
+	+getZoneType() : std::string {query}
+	+setType(const std::string& type) : void
+}
+
+
+class ZoneUrbaine {
+	+ZoneUrbaine(int num, const std::string& prop, const Polygone<int, float>& forme, float surfaceConstruite)
+	+surfaceConstructible() : float {query}
+	-surfaceConstruite : float
+	+operator<<(std::ostream& os, const ZoneUrbaine& zoneUrbaine) : std :: ostream&
+}
+
+
+
+
+
+/' Inheritance relationships '/
+
+.Constructible <|-- .ZoneAUrbaniser
+
+
+.Constructible <|-- .ZoneAgricole
+
+
+.Parcelle <|-- .Constructible
+
+
+.Parcelle <|-- .ZoneNaturelle
+
+
+.ZoneAUrbaniser <|-- .ZoneUrbaine
+
+
+.ZoneNaturelle <|-- .ZoneAgricole
+
+
+
+
+
+/' Aggregation relationships '/
+
+
+
+
+
+/' Nested objects '/
+
+
+
+@enduml

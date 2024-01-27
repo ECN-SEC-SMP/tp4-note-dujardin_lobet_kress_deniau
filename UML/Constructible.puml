@@ -1,0 +1,33 @@
+@startuml
+
+
+
+
+
+/' Objects '/
+
+abstract class Constructible {
+	+Constructible(int num, const std::string& prop, const Polygone<int, float>& forme)
+	+{abstract} surfaceConstructible() : float {query}
+}
+
+
+
+
+
+/' Inheritance relationships '/
+
+
+
+
+/' Aggregation relationships '/
+
+
+
+
+
+/' Nested objects '/
+
+
+
+@enduml

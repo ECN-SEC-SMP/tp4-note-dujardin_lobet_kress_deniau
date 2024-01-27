@@ -1,0 +1,35 @@
+@startuml
+
+
+
+
+
+/' Objects '/
+
+class ZoneUrbaine {
+	+ZoneUrbaine(int num, const std::string& prop, const Polygone<int, float>& forme, float surfaceConstruite)
+	+surfaceConstructible() : float {query}
+	-surfaceConstruite : float
+	+operator<<(std::ostream& os, const ZoneUrbaine& zoneUrbaine) : std :: ostream&
+}
+
+
+
+
+
+/' Inheritance relationships '/
+
+
+
+
+/' Aggregation relationships '/
+
+
+
+
+
+/' Nested objects '/
+
+
+
+@enduml

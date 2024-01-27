@@ -1,0 +1,55 @@
+@startuml
+
+
+
+
+
+/' Objects '/
+
+class Point2D <template<typename T, typename U>> {
+	+Point2D(T x, U y)
+	+getX() : T {query}
+	-x : T
+	+getY() : U {query}
+	-y : U
+	+translate(T deltaX, U deltaY) : void
+}
+
+
+class Polygone <template<typename T, typename U>> {
+	+Polygone()
+	+Polygone(const std::vector<Point2D<T, U>>& listeSommets)
+	+Polygone(const Polygone<T, U>& poly)
+	+getSurface() : float {query}
+	-surface : float
+	+getSommets() : std::vector<Point2D<T , U>> {query}
+	-sommets : std::vector<Point2D<T, U>>
+	+addPoint(const Point2D<T, U>& point) : void
+	+calculerSurface() : void
+	+setSommets(const std::vector<Point2D<T, U>>& listeSommets) : void
+	+translate(T deltaX, U deltaY) : void
+}
+
+
+
+
+
+/' Inheritance relationships '/
+
+
+
+
+/' Aggregation relationships '/
+
+.Polygone *-- .Point2D
+
+
+
+
+
+
+/' Nested objects '/
+
+
+
+@enduml

@@ -1,0 +1,91 @@
+@startuml
+
+
+
+
+
+/' Objects '/
+
+abstract class Constructible {
+	+Constructible(int num, const std::string& prop, const Polygone<int, float>& forme)
+	+{abstract} surfaceConstructible() : float {query}
+}
+
+
+class Parcelle {
+	+Parcelle()
+	+Parcelle(int num, const std::string& prop, const Polygone<int, float>& forme)
+	+Parcelle(const Parcelle& parc)
+	+getForme() : Polygone<int , float> {query}
+	#forme : Polygone<int, float>
+	+getSurface() : float {query}
+	#surface : float
+	+getNumero() : int {query}
+	#numero : int
+	#pConstructible : int
+	+operator<<(std::ostream& os, Parcelle& parcelle) : std :: ostream&
+	+getProprietaire() : std::string {query}
+	+getType() : std::string {query}
+	#proprietaire : std::string
+	#type : std::string
+	+setForme(const Polygone<int, float>& forme) : void
+	+setNumero(int n) : void
+	+setProprietaire(const std::string& prop) : void
+	+setSurface(float nouvelleSurface) : void
+	+setType(const std::string& type) : void
+}
+
+
+class Point2D <template<typename T, typename U>> {
+	+Point2D(T x, U y)
+	+getX() : T {query}
+	-x : T
+	+getY() : U {query}
+	-y : U
+	+translate(T deltaX, U deltaY) : void
+}
+
+
+class Polygone <template<typename T, typename U>> {
+	+Polygone()
+	+Polygone(const std::vector<Point2D<T, U>>& listeSommets)
+	+Polygone(const Polygone<T, U>& poly)
+	+getSurface() : float {query}
+	-surface : float
+	+getSommets() : std::vector<Point2D<T , U>> {query}
+	-sommets : std::vector<Point2D<T, U>>
+	+addPoint(const Point2D<T, U>& point) : void
+	+calculerSurface() : void
+	+setSommets(const std::vector<Point2D<T, U>>& listeSommets) : void
+	+translate(T deltaX, U deltaY) : void
+}
+
+
+
+
+
+/' Inheritance relationships '/
+
+.Parcelle <|-- .Constructible
+
+
+
+
+
+/' Aggregation relationships '/
+
+.Parcelle *-- .Polygone
+
+
+.Polygone *-- .Point2D
+
+
+
+
+
+
+/' Nested objects '/
+
+
+
+@enduml

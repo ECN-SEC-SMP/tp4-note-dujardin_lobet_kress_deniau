@@ -1,0 +1,37 @@
+@startuml
+
+
+
+
+
+/' Objects '/
+
+class Point2D <template<typename T, typename U>> {
+	+Point2D(T x, U y)
+	+getX() : T {query}
+	-x : T
+	+getY() : U {query}
+	-y : U
+	+translate(T deltaX, U deltaY) : void
+}
+
+
+
+
+
+/' Inheritance relationships '/
+
+
+
+
+/' Aggregation relationships '/
+
+
+
+
+
+/' Nested objects '/
+
+
+
+@enduml

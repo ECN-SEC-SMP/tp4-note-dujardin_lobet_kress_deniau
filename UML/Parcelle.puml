@@ -1,0 +1,51 @@
+@startuml
+
+
+
+
+
+/' Objects '/
+
+class Parcelle {
+	+Parcelle()
+	+Parcelle(int num, const std::string& prop, const Polygone<int, float>& forme)
+	+Parcelle(const Parcelle& parc)
+	+getForme() : Polygone<int , float> {query}
+	#forme : Polygone<int, float>
+	+getSurface() : float {query}
+	#surface : float
+	+getNumero() : int {query}
+	#numero : int
+	#pConstructible : int
+	+operator<<(std::ostream& os, Parcelle& parcelle) : std :: ostream&
+	+getProprietaire() : std::string {query}
+	+getType() : std::string {query}
+	#proprietaire : std::string
+	#type : std::string
+	+setForme(const Polygone<int, float>& forme) : void
+	+setNumero(int n) : void
+	+setProprietaire(const std::string& prop) : void
+	+setSurface(float nouvelleSurface) : void
+	+setType(const std::string& type) : void
+}
+
+
+
+
+
+/' Inheritance relationships '/
+
+
+
+
+/' Aggregation relationships '/
+
+
+
+
+
+/' Nested objects '/
+
+
+
+@enduml

@@ -1,0 +1,38 @@
+@startuml
+
+
+
+
+
+/' Objects '/
+
+class ZoneAgricole {
+	+ZoneAgricole(int num, const std::string& prop, const Polygone<int, float>& forme, const std::string& typeCulture)
+	+surfaceConstructible() : float {query}
+	+operator<<(std::ostream& os, const ZoneAgricole& za) : std :: ostream&
+	+getTypeCulture() : std::string {query}
+	#typeCulture : std::string
+	+setType(const std::string& type) : void
+	+setTypeCulture(const std::string& typeCulture) : void
+}
+
+
+
+
+
+/' Inheritance relationships '/
+
+
+
+
+/' Aggregation relationships '/
+
+
+
+
+
+/' Nested objects '/
+
+
+
+@enduml
